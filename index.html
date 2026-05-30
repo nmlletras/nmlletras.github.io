@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hello World</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0f172a,#1e293b,#3b82f6);
+    overflow:hidden;
+}
+
+h1{
+    color:white;
+    font-size:5rem;
+    text-shadow:0 0 20px rgba(255,255,255,.5);
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
+
+/* Popup */
+.popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.7);
+    display:none;
+    justify-content:center;
+    align-items:center;
+}
+
+.popup-box{
+    background:#fff;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    width:320px;
+    animation:pop .4s ease;
+}
+
+@keyframes pop{
+    from{
+        transform:scale(.7);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.popup h2{
+    margin-bottom:10px;
+}
+
+.popup p{
+    margin-bottom:20px;
+    color:#555;
+}
+
+.btn{
+    border:none;
+    padding:12px 24px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    margin:5px;
+}
+
+.subscribe{
+    background:#ff0000;
+    color:white;
+}
+
+.close{
+    background:#ddd;
+}
+</style>
+</head>
+<body>
+
+<h1>Hello World ✨</h1>
+
+<div class="popup" id="popup">
+    <div class="popup-box">
+        <h2>Subscribe to NML LETRAS</h2>
+        <p>Support the channel and stay updated!</p>
+
+        <button class="btn subscribe" onclick="subscribe()">
+            Subscribe
+        </button>
+
+        <button class="btn close" onclick="closePopup()">
+            Later
+        </button>
+    </div>
+</div>
+
+<script>
+setTimeout(() => {
+    document.getElementById("popup").style.display = "flex";
+}, 3000);
+
+function subscribe() {
+    window.open(
+        "https://youtube.com/@nmlletras",
+        "_blank"
+    );
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+</script>
+
+</body>
+</html>
